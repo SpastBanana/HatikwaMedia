@@ -14,7 +14,7 @@ SECRET_KEY = 'rd6+tzuyl*)%dni@1@(69a4e6^!!v^z6g%58o&i_3(9l$!52i!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -29,6 +29,8 @@ INSTALLED_APPS = [
 
     # Own
     'Frontend',
+    'Backend',
+    'Permissions',
 ]
 
 MIDDLEWARE = [

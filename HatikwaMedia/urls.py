@@ -15,10 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404
 import Frontend, Backend
+from Backend import site_errors
 
 urlpatterns = [
-    path('site/db/admin', admin.site.urls),
-    path('test/', include('Frontend.urls')),
-    path('admin/', include('Backend.urls')),
+    path('db/admin', admin.site.urls),
+    path('', include('Frontend.urls')),
+    path('admin', include('Backend.urls')),
+    path('lid-access-denied', Backend.site_errors.lid_access_denied, name="Lid access denied"),
+    path('not-registrated', Backend.site_errors.not_registrated, name="Not logged in"),
+    path('login', Backend.views.loginview, name="Login"),
+    path('logout', Backend.views.logoutview, name="Logout"),
 ]
+
+handler404 = "Backend.site_errors.not_found"
