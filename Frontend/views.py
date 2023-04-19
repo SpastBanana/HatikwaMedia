@@ -5,5 +5,9 @@ from django.shortcuts import render, redirect
 def homeview(request):
     if not request.user.is_authenticated:
         return redirect('/login')
-        
-    return render(request, 'index.html')
+    
+    data = {
+        'page': 'home.html'
+    }
+
+    return render(request, 'index.html', data)
