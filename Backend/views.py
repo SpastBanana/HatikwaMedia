@@ -31,7 +31,7 @@ def logoutview(request):
     return redirect('/')
 
 
-def startview(request):
+def site_settings(request):
     data = {
         'page': 'settings/home.html'
     }

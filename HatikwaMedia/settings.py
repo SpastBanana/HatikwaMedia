@@ -1,5 +1,6 @@
 import os
 import sys
+import Backend
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     'Frontend',
     'Backend',
     'Permissions',
+    'Songs',
 ]
 
 MIDDLEWARE = [
@@ -41,6 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'HatikwaMedia.middleware.admin_required',
 ]
 
 ROOT_URLCONF = 'HatikwaMedia.urls'
@@ -116,3 +119,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "Static"),
 ]
 STATIC_ROOT = "static_root"
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'Media')
