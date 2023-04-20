@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls import handler404
+from django.conf.urls import handler404, handler403
 import Frontend, Backend
 from Backend import site_errors
 from django.conf import settings
@@ -21,3 +21,4 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 handler404 = "Backend.site_errors.not_found"
+handler403 = "Backend.site_errors.forbidden"
