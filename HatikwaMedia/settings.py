@@ -43,7 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'HatikwaMedia.middleware.admin_required',
+    'HatikwaMedia.middleware.dbadmin'
 ]
 
 ROOT_URLCONF = 'HatikwaMedia.urls'
