@@ -1,6 +1,6 @@
 import os
 import sys
-import Backend
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,7 +43,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'HatikwaMedia.middleware.dbadmin'
+    'HatikwaMedia.middleware.DbAdmin',
+    'HatikwaMedia.middleware.SiteAdmin',
 ]
 
 ROOT_URLCONF = 'HatikwaMedia.urls'
@@ -111,14 +112,23 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+# Static structure setup
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "Static"),
 ]
 STATIC_ROOT = "static_root"
 
+# Media structure setup
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'Media')
+
+# Email server config
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.bhosted.nl'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+# Retreve .env information
+load_dotenv()
