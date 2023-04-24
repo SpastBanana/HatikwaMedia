@@ -4,15 +4,20 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+    background-color: black;
+}
+
 main {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     background: black;
-    height: 100%;
+    margin-top: 50px;
 }
 img {
-    width: 60%;
+    width: 45%;
     margin-bottom: 10px;
 }
 
@@ -21,8 +26,8 @@ form {
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    width: 200px;
-    height: 220px;
+    width: 250px;
+    height: 300px;
     color: whitesmoke;
     background: #181818;
     padding: 20px;
@@ -31,10 +36,11 @@ form {
 form h1 {
     text-align: left;
     width: 100%;
+    font-size: 22px;
 }
 
 form p {
-    color: red;
+    color: green;
     text-align: left;
 }
 

@@ -5,15 +5,20 @@ main {
     margin-top: 50px;
 }
 
-main div {
-    color: whitesmoke;
+.list {
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
     flex-direction: column;
-    height: 400px;
-    width: 350px;
     padding: 20px;
-    text-align: justify;
+    height: 300px;
+    width: 250px;
     background-color: #151515;
+}
+
+.list a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 18px;
+    font-weight: bold;
 }

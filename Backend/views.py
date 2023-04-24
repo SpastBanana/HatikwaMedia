@@ -6,6 +6,7 @@ from django.template import Context
 from django.template.loader import get_template
 from django.contrib.auth.models import User
 from django.core.exceptions import PermissionDenied
+from django.contrib.auth.models import Group
 
 
 def loginview(request):
@@ -46,10 +47,19 @@ def site_settings(request):
     return render(request, 'settings/index.html', data)
 
 
+def users(request):
+    data = {
+        'page': 'settings/users.html',
+    }
+
+    return render(request, 'settings/index.html', data)
+
+
 def create_user(request):
     data = {
         'page': 'settings/create-user.html',
         'notify': '',
+        'users': User.objects.filter(groups__name='Lid'),
     }
 
     if request.method == 'POST' and 'create-user' in request.POST:
@@ -82,6 +92,7 @@ def create_user(request):
         data = {
             'page': 'settings/create-user.html',
             'notify': 'Uitnodiging is verstuurd!',
+            'users': User.objects.filter(groups__name='Lid'),
         }
 
     return render(request, 'settings/index.html', data)
@@ -103,6 +114,8 @@ def activate_user(request, mail):
             if pass1 == pass2:
                 user = User.objects.get(username=mail)
                 user.set_password(pass1)
+                my_group = Group.objects.get(name='Lid')
+                user.groups.add(my_group)
                 user.save()
 
                 member_invites.objects.get(email=mail).delete()
@@ -115,3 +128,11 @@ def activate_user(request, mail):
         return render(request, 'user/activate.html', data)
     else:
         raise PermissionDenied()
+
+
+def delete_user(request):
+    pass
+
+
+def manage_user(request):
+    pass

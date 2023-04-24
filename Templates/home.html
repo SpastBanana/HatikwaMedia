@@ -1,0 +1,37 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'CSS/home.css' %}">
+</head>
+
+<main>
+    <h2>Active repetoire</h2>
+    <hr>
+    {% for song in songs %}
+    {% if song.page_topic == 'active' %}
+    <li><a href="/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
+    {% endif %}
+    {% endfor %}
+    <br>
+    <br>
+
+    <h2>Inactive repetoire</h2>
+    <hr>
+    {% for song in songs %}
+    {% if song.page_topic == 'archive' %}
+    <li><a href="/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
+    {% endif %}
+    {% endfor %}
+    <br>
+    <br>
+
+    <h2>Folders</h2>
+    <hr>
+    {% for song in songs %}
+    {% if song.page_topic == 'folder' %}
+    <li><a href="/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
+    {% endif %}
+    {% endfor %}
+    <br>
+    <br>
+</main>
