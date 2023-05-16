@@ -131,8 +131,8 @@ def activate_user(request, mail):
 
 
 def delete_user(request):
-    pass
+    raise PermissionDenied()
 
 
 def manage_user(request):
-    pass
+    raise PermissionDenied()

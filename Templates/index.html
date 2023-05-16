@@ -11,8 +11,16 @@
 </head>
 <body>
      <header>
-        
+        <a href="/songs">Repetoire</a>
+        {% if media_perm %}
+        <a href="/media">Media</a>
+        {% endif %}
+        {% if settings_perm %}
+        <a href="/admin">Settings</a>
+        {% endif %}
+        <a href="/logout">Logout</a>
      </header>
+     <img src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo" style="width: 45%; margin-left: 50%; transform: translateX(-50%);">
      {% include page %}
 </body>
 </html>

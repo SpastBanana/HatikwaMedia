@@ -1,7 +1,7 @@
 {% load static %}
 
 <head>
-    <link rel="stylesheet" href="{% static 'CSS/home.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/render-song.css' %}">
 </head>
 
 <style>
@@ -25,12 +25,12 @@
         margin-right: 5px; /* Adjust this value to provide spacing between the icon and text */
     }
 
-    main .folder::before {
+    main .audio::before {
         content: "";
         display: inline-block;
         width: 40px; /* Adjust this value to the desired width of the image */
         height: 40px; /* Adjust this value to the desired height of the image */
-        background-image: url('{% static "IMG/Icons/folder-icon.png" %}');
+        background-image: url('{% static "IMG/Icons/play-icon.png" %}');
         background-repeat: no-repeat;
         background-position: center;
         vertical-align: middle;
@@ -39,33 +39,46 @@
 </style>
 
 <main>
-    <h2>Active repetoire</h2>
+    <h2>Hoofd bestanden</h2>
     <hr>
     <br>
-    {% for song in active %}
-    <li class="file"><a href="/songs/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
+    {% for song in all_files %}
+    {% if song.item_type == 'main_sheet' %}
+    <li class="file"><a href="{{ song.song_file.url }}">Bladmuziek</a></li>
     <br>
+    {% elif song.item_type == 'main_choreo' %}
+    <li class="file"><a href="{{ song.song_file.url }}">Choreo</a></li>
+    <br>
+    {% elif song.item_type == 'main_audio' %}
+    <li class="file"><a href="{{ song.song_file.url }}">Audio opname</a></li>
+    <br>
+    {% endif %}
     {% endfor %}
     <br>
     <br>
 
-    <h2>Inactive repetoire</h2>
+    <h3>Midi's</h3>
     <hr>
     <br>
-    {% for song in inactive %}
-    <li class="file"><a href="/songs/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
+    {% for song in all_files %}
+    {% if song.item_type == 'midi' %}
+    <li class="audio"><a href="{{ song.song_file.url }}">{{ song.song_file }}</a></li>
     <br>
+    {% endif %}
     {% endfor %}
     <br>
     <br>
 
-    <h2>Folders</h2>
+    <h3>Alle bestanden</h3>
     <hr>
     <br>
-    {% for song in folders %}
-    <li class="folder"><a href="/songs/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
+    {% for song in all_files %}
+    <li class="file"><a href="={{ song.song_file.url }}">{{ song.song_file }}</a></li>
     <br>
     {% endfor %}
+    <br>
+    <br>
+    <br>
     <br>
     <br>
 </main>

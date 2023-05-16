@@ -22,6 +22,7 @@ def song_file_path(instance, filename):
 class song_list(models.Model):
     topic_choises = (
         ('active', 'active'),
+        ('inactive', 'inactive'),
         ('archive', 'archive'),
         ('folder', 'folder'),
     )
@@ -36,48 +37,20 @@ class song_list(models.Model):
         verbose_name_plural = "All songs"
 
 
-class song_sheetfiles(models.Model):
+class song_files(models.Model):
+    type_choises = (
+        ('main_sheet', 'main_sheet'),
+        ('main_choreo', 'main_choreo'),
+        ('main_audio', 'main_audio'),
+        ('midi', 'midi'),
+        ('other', 'other'),
+    )
     song_name = models.CharField(max_length=200)
-    main_item = models.BooleanField()
+    item_type = models.CharField(max_length=200, choices=type_choises, default='other')
     song_file = models.FileField(upload_to=song_file_path)
 
     def __str__(self):
-        return self.song_name
+        return f"{self.song_name} - {self.item_type}"
 
     class Meta:
-        verbose_name_plural = "Sheets"
-
-
-class song_soundfiles(models.Model):
-    song_name = models.CharField(max_length=200)
-    main_item = models.BooleanField()
-    song_file = models.FileField(upload_to=song_file_path)
-
-    def __str__(self):
-        return self.song_name
-
-    class Meta:
-        verbose_name_plural = "Media (sounds & mp3)"
-
-
-class song_mediafiles(models.Model):
-    song_name = models.CharField(max_length=200)
-    main_item = models.BooleanField()
-    song_file = models.FileField(upload_to=song_file_path)
-
-    def __str__(self):
-        return self.song_name
-
-    class Meta:
-        verbose_name_plural = "Media (foto's and video's)"
-
-
-class song_otherfiles(models.Model):
-    song_name = models.CharField(max_length=200)
-    song_file = models.FileField(upload_to=song_file_path)
-
-    def __str__(self):
-        return self.song_name
-
-    class Meta:
-        verbose_name_plural = "Other song files"
+        verbose_name_plural = "Song files"
