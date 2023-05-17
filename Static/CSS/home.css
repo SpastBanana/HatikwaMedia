@@ -22,3 +22,7 @@ main li {
 main li a {
     color:  whitesmoke;
 }
+
+hr {
+    background-color: rgb(120, 11, 11);
+}

@@ -65,7 +65,7 @@ def songview(request, url_song_name):
 
     # Return 403 if requested song not in database
     if url_song_name not in all_songs:
-        raise PermissionDenied()
+        raise Http404()
     
     # Redirect user to archive if song not active
     song_item = get_object_or_404(song_list, song_name=url_song_name)
@@ -82,13 +82,39 @@ def songview(request, url_song_name):
         if item.song_name == url_song_name:
             files_list.append(item)
 
+    file_names = []
+    for item in song_files.objects.all():
+        if item.song_name == url_song_name:
+            file_names.append(str(item.song_file).split('/')[-1])
+
     data = {
         'page': 'render-song.html',
         'settings_perm': settings_perm,
         'media_perm': media_perm,
-        'all_files': files_list,
+        'all_files': zip(files_list, file_names),
+        'all_files1': zip(files_list, file_names),
+        'all_files2': zip(files_list, file_names),
     }
 
-    print(files_list)
-
     return render(request, 'index.html', data)
+
+
+def gastview(request):
+    guest_activated = []
+    for item in song_list.objects.all():
+        if item.guest_active:
+            guest_activated.append(item.song_name)
+
+    if len(guest_activated) < 1:
+        all_guest_items = None
+    else:
+        all_guest_items = []
+        for song in song_files.objects.all():
+            if song.item_type == 'main_sheet' and song.song_name in guest_activated:
+                all_guest_items.append(song)
+
+    data = {
+        'items': all_guest_items,
+    }
+
+    return render(request, 'gast.html', data)

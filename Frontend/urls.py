@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.homeview, name="Songs"),
     path('songs', views.homeview, name="Songs"),
     path('songs/song/<str:url_song_name>', views.songview, name="Songs"),
+    path('gast', views.gastview, name="Gast")
 ]
