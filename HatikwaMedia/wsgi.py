@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
 import os
 import sys
 
-sys.path.append('/mnt/Hatikwa-Media')
+sys.path.append('/mnt/Hatikwa-Media/HatikwaMedia')
 
 from django.core.wsgi import get_wsgi_application
 
