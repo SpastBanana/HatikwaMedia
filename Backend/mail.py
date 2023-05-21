@@ -36,6 +36,6 @@ def auth_mail(to, sub, name):
     mail["Subject"] = sub
     mail.set_content(msg, subtype="html")
 
-    with smtplib.SMTP_SSL('smtp.bhosted.nl', port=465) as server:
+    with smtplib.SMTP_SSL('smtp.bhosted.nl', port=465, context=ssl.create_default_context()) as server:
         server.login(mail_from, mail_pass)
         server.sendmail(mail_from, to, mail.as_string())
