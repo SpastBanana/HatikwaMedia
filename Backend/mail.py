@@ -4,7 +4,8 @@ from email.message import EmailMessage
 
 def auth_mail(to, sub, name):
     mail_from = "authentication@datalectro.nl"
-    mail_pass = os.getenv('auth_mail')
+    # mail_pass = os.getenv('auth_mail')
+    mail_pass = "HdytJ5AYV2"
 
     msg = f"""\
     <html>
@@ -35,7 +36,6 @@ def auth_mail(to, sub, name):
     mail["Subject"] = sub
     mail.set_content(msg, subtype="html")
 
-    server = smtplib.SMTP_SSL('smtp.bhosted.nl', port=465)
-    server.login(mail_from, mail_pass)
-    server.sendmail(mail_from, to, mail.as_string())
-    server.quit()
+    with smtplib.SMTP_SSL('smtp.bhosted.nl', port=465) as server:
+        server.login(mail_from, mail_pass)
+        server.sendmail(mail_from, to, mail.as_string())
