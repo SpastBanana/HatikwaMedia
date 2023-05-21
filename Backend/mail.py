@@ -57,7 +57,7 @@ def auth_mail(to, sub, name):
         <br>
         <p>Voor het instellen van jouw account moet je een wachtwoord aanmaken met de onderstaande link. De gebruikersnaam die je zal gebruiken voor deze website is ten alle tijden hetzelfde als het mailadres waar je deze mail op binnen krijgt.</p>
         <br>
-        <a href="https://hatikwa-media/auth/new-member/register/{name}">Account registreren</a>
+        <a href="https://hatikwa-media.nl/auth/new-member/register/{name}">Account registreren</a>
         <br>
         <p>Voor overige vragen, of tech support betreft deze website graag mailen naar één van de onderstaande mail adressen</p>
         <p>Bestuur Hatikwa: <a href="mailto:bestuur@hatikwa.nl">bestuur@hatikwa.nl</a></p>
