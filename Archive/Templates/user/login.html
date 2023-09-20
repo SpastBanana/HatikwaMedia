@@ -1,0 +1,25 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'CSS/user/login.css' %}">
+</head>
+
+<main>
+    <img src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo">
+    <form method="post">
+        {% csrf_token %}
+        <h1>Login</h1>
+        <p>{{ error }}</p>
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit" name="login">Login</button>
+    </form>
+    <div class="guest-box">
+        <a href="/gast">Gasten pagina</a>
+    </div>
+    <div class="disclaimer">
+        <p>Sebastiaan de Vries</p>
+        <a href="https://datalectro.nl">&copy; DataLectro</a>
+        <a href="https://hatikwa.nl">Hatikwa website</a>
+    </div>
+</main>

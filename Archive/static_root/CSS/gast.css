@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 1050px) {
+    html {
+        background-color: black;
+    }
+    
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100px;
+    }
+    
+    header a {
+        color: whitesmoke;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .bannerbox {
+        position: relative;
+        width: 95%;
+    }
+    
+    .bannerbox img {
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    
+    .bannerbox div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 3px;
+        right: 0;
+        background: #151515aa;
+        z-index: 5;
+        color: whitesmoke;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .bannerbox div h1 {
+        font-size: 25px;
+    }
+    
+    .bannerbox div p {
+        font-size: 10px;
+    }
+    
+    main {
+        color: whitesmoke;
+    }
+    
+    main {
+        width: 80%;
+        background-color: #151515;
+        margin-top: 50px;
+        padding: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    
+    main h2 {
+        color: whitesmoke;
+        font-size: 22px;
+        font-style: italic;
+    }
+    
+    main li {
+        color: whitesmoke;
+    }
+    
+    main li a {
+        color:  whitesmoke;
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    html {
+        background-color: black;
+    }
+    
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100px;
+    }
+    
+    header a {
+        color: whitesmoke;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .bannerbox {
+        position: relative;
+        width: 50%;
+    }
+    
+    .bannerbox img {
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    
+    .bannerbox div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 3px;
+        right: 0;
+        background: #151515aa;
+        z-index: 5;
+        color: whitesmoke;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        flex-direction: column;
+        padding: 40px;
+    }
+    
+    .bannerbox div p {
+        font-size: 18px;
+    }
+    
+    main {
+        color: whitesmoke;
+    }
+    
+    main {
+        width: 80%;
+        background-color: #151515;
+        margin-top: 50px;
+        padding: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    
+    main h2 {
+        color: whitesmoke;
+        font-size: 22px;
+        font-style: italic;
+    }
+    
+    main li {
+        color: whitesmoke;
+    }
+    
+    main li a {
+        color:  whitesmoke;
+    }
+}

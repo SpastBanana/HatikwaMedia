@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/gast.css' %}">
+    <title>Hatikwa gasten</title>
+</head>
+
+<style>
+    main {
+        list-style: none;
+    }
+
+    main li {
+        line-height: 24px; /* Adjust this value as per your icon's height */
+    }
+
+    main li::before {
+        content: "";
+        display: inline-block;
+        width: 40px; /* Adjust this value to the desired width of the image */
+        height: 40px; /* Adjust this value to the desired height of the image */
+        background-repeat: no-repeat;
+        background-position: center;
+        vertical-align: middle;
+        margin-right: 5px; /* Adjust this value to provide spacing between the icon and text */
+    }
+
+    main .file::before {
+        background-image: url('{% static "IMG/Icons/file-icon.png" %}');
+    }
+
+    main .audio::before {
+        background-image: url('{% static "IMG/Icons/play-icon.png" %}');
+    }
+
+    main .choreo::before {
+        background-image: url('{% static "IMG/Icons/stickman-icon.png" %}');
+    }
+
+    main .sheet::before {
+        background-image: url('{% static "IMG/Icons/noot-icon.png" %}');
+    }
+</style>
+
+<body>
+     <header>
+        <a href="/login">Login</a>
+     </header>
+    <div class="bannerbox">
+        <img src="{% static 'IMG/Guest/Bannert.png' %}" alt="Hatikwa-Logo">
+        <div>
+            <H1>Hatikwa</H1>
+            <p>Welkom op de gasten pagina van de Hatikwa media site</p>
+            <p>Op deze site staat al onze bladmuziek en andere media</p>
+            <p>Eigenlijk kunnen alleen leden van Hatikwa al deze content bekijken, maar bij onder anderen open repetities is het toch makkelijk als jij ook de bladmuziek hebt</p>
+            <p>Onderaan deze pagina vind je alle bladmuziek die wij aan gasten openbaar maken om mee te doen</p>
+            <p>Wil je toch gewoon alle muziek of media kunnen zien, word dan maar gewoon lid bij ons gezellige koor! !)</p>
+        </div>
+    </div>
+     <main>
+        <h2>Bestanden</h2>
+        <hr>
+        <br>
+        {% if items == None %}
+        <p>Op het moment zijn er geen liederen beschikbaar voor gasten</p>
+        <p>Klopt dit niet of op zoek naar iets anders?</p>
+        <p>Neem dan contact op met Sebastiaan <a href="mailto:s.devries@datalectro.nl">s.devries@datalectro.nl</a></p>
+        {% else %}
+        {% for item in items %}
+        <li class="sheet"><a href="{{ item.song_file.url }}">{{ item.song_name }}</a></li>
+        <br>
+        {% endfor %}
+        {% endif %}
+        <br>
+        <br>
+        <br>
+     </main>
+</body>
+</html>
