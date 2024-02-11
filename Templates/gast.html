@@ -72,7 +72,7 @@
         <p>Neem dan contact op met Sebastiaan <a href="mailto:s.devries@datalectro.nl">s.devries@datalectro.nl</a></p>
         {% else %}
         {% for item in items %}
-        <li class="sheet"><a href="{{ item.song_file.url }}">{{ item.song_name }}</a></li>
+        <li class="file"><a href="/songs/song/{{ item }}">{{ item }}</a></li>
         <br>
         {% endfor %}
         {% endif %}

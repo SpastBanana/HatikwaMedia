@@ -1,6 +1,5 @@
 import os
 import sys
-from dotenv import load_dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,8 +42,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'HatikwaMedia.middleware.DbAdmin',
-    'HatikwaMedia.middleware.SiteAdmin',
+    'HatikwaMedia.middleware.SiteRestrictions',
 ]
 
 ROOT_URLCONF = 'HatikwaMedia.urls'
@@ -127,8 +125,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'Media')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.bhosted.nl'
 EMAIL_PORT = 465
-EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
-
-# Retreve .env information
-load_dotenv()

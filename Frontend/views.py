@@ -26,7 +26,7 @@ def all_groups(request):
 
 
 
-def homeview(request):
+def repetoireview(request):
     # Redirect to '/login' if not authenticated
     if not request.user.is_authenticated:
         return redirect('/login')
@@ -42,7 +42,7 @@ def homeview(request):
     
     # Template data dictionary
     data = {
-        'page': 'home.html',
+        'page': 'repetoire.html',
         'active': active,
         'inactive': inactive,
         'folders': folders,
@@ -54,9 +54,6 @@ def homeview(request):
 
 
 def songview(request, url_song_name):
-    # Redirect to '/login' if not authenticated
-    if not request.user.is_authenticated:
-        return redirect('/login')
 
     # Get all songs registered in a list
     all_songs = []
@@ -111,10 +108,11 @@ def gastview(request):
         all_guest_items = []
         for song in song_files.objects.all():
             if song.item_type == 'main_sheet' and song.song_name in guest_activated:
-                all_guest_items.append(song)
+                all_guest_items.append(song.song_name)
+
 
     data = {
         'items': all_guest_items,
     }
 
-    return render(request, 'gast.html', data)
+    return render(request, 'gast.html', data) 

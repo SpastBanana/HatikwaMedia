@@ -1,0 +1,10 @@
+{% load static %}
+
+<main style="display: flex; align-items: center; justify-content: center; margin-top: 50px;">
+    <form method="post" style="height: 400px; width: 300px; background: #111; display: flex; align-items: center; justify-content: space-evenly; flex-direction: column;">
+        {% csrf_token %}
+        <h1 style="color: whitesmoke;">Create user</h1>
+        <p style="color: orange; width: 75%;">Weet je zeker dat je het wachtwoord van {{ user.first_name }} {{ user.last_name }} ({{ user.email }}) wilt resetten?</p>
+        <a href="/admin/users/reset-user/{{email}}/reset" style="width: 75%; height: 10%; color: whitesmoke; font-weight: bolder; background: red; border: none; cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center;" name="reset-user" type="submit">RESET</a>
+    </form>
+</main>

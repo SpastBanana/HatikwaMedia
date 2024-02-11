@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import handler404, handler403
-import Frontend, Backend
+import Frontend, Backend, Users
 from Backend import site_errors
 from django.conf import settings
 from django.conf.urls.static import static
@@ -12,7 +12,7 @@ urlpatterns = [
     path('admin/', include('Backend.urls')),
     path('login', Backend.views.loginview, name="Login"),
     path('logout', Backend.views.logoutview, name="Logout"),
-    path('auth/new-member/register/<str:mail>', Backend.views.activate_user, name="Activate user"),
+    path('auth/new-member/register/<str:mail>', Users.users.activate_user, name="Activate user"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

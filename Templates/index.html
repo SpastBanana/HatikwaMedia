@@ -11,6 +11,7 @@
 </head>
 <body>
      <header>
+        {% if user.is_authenticated %}
         <a href="/songs">Repetoire</a>
         {% if media_perm %}
         <a href="/media">Media</a>
@@ -19,6 +20,10 @@
         <a href="/admin">Settings</a>
         {% endif %}
         <a href="/logout">Logout</a>
+        {% endif %}
+        {% if not user.is_authenticated %}
+        <a href="/login">Login</a>
+        {% endif %}
      </header>
      <img src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo" style="width: 45%; margin-left: 50%; transform: translateX(-50%);">
      {% include page %}

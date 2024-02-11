@@ -3,9 +3,10 @@ from django.http import HttpResponse
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import redirect
 from Backend.models import member_invites
+from Songs.models import song_list
 
 
-class DbAdmin:
+class SiteRestrictions:
     def __init__(self, get_response):
         self.get_response = get_response
 
@@ -19,37 +20,40 @@ class DbAdmin:
     def process_view(self, request, view_func, view_args, view_kwargs):
         assert hasattr(request, 'user')
 
-        if "db" in request.path:
-            if not request.user.is_authenticated:
-                return redirect('/login')
+        guest_activated = []
+        for item in song_list.objects.all():
+            if item.guest_active:
+                guest_activated.append(item.song_name)
 
-            if not request.user.groups.filter(name="Admin").exists():
-                raise PermissionDenied()
+        if request.user.is_authenticated:
+            if "db" in request.path:
+                if not request.user.groups.filter(name="Admin").exists():
+                    raise PermissionDenied()
 
+            if "admin" in request.path and "db" not in request.path:
+                access = False
 
-class SiteAdmin:
-    def __init__(self, get_response):
-        self.get_response = get_response
+                for role in ["Admin", "Bestuur", "Dirigent", "PR-lid"]:
+                    if request.user.groups.filter(name=role).exists():
+                        access = True
+                
+                if access == False:
+                    raise PermissionDenied()
 
-    def __call__(self, request):
-
-        response = self.get_response(request)
-
-        return response
-
-    
-    def process_view(self, request, view_func, view_args, view_kwargs):
-        assert hasattr(request, 'user')
-
-        if "admin" in request.path and "db" not in request.path:
+        if not request.user.is_authenticated:
             access = False
+            authorised_urls = ["", "/", "/login", "/gast", "/auth"]
             
-            if not request.user.is_authenticated:
-                return redirect('/login')
-
-            for role in ["Admin", "Bestuur", "Dirigent", "PR-lid"]:
-                if request.user.groups.filter(name=role).exists():
+            if "song" in request.path:
+                path_items = request.path.split('/')
+                if path_items[-1] in guest_activated:
                     access = True
-            
+                else:    
+                    access = False
+
+            for item in authorised_urls:
+                if item in request.path:
+                    access = True
+
             if access == False:
                 raise PermissionDenied()

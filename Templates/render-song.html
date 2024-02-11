@@ -10,18 +10,18 @@
     }
 
     main li {
-        line-height: 24px; /* Adjust this value as per your icon's height */
+        line-height: 24px;
     }
 
     main li::before {
         content: "";
         display: inline-block;
-        width: 40px; /* Adjust this value to the desired width of the image */
-        height: 40px; /* Adjust this value to the desired height of the image */
+        width: 33px;
+        height: 33px;
         background-repeat: no-repeat;
         background-position: center;
         vertical-align: middle;
-        margin-right: 5px; /* Adjust this value to provide spacing between the icon and text */
+        margin-right: 5px;
     }
 
     main .file::before {
@@ -38,6 +38,10 @@
 
     main .sheet::before {
         background-image: url('{% static "IMG/Icons/noot-icon.png" %}');
+    }
+
+    main li a {
+        text-decoration: none;
     }
 </style>
 

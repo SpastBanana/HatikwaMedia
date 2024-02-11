@@ -15,6 +15,9 @@
         <a href="/admin/users">Users</a>
         <a href="/admin/songs">Liedjes</a>
         <a href="/admin/media">Media</a>
+        {% if user.is_superuser %}
+        <a href="/db/admin">DB</a>
+        {% endif %}
     </header>
     <img src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo" style="width: 45%; margin-left: 50%; transform: translateX(-50%);">
     {% include page %}
