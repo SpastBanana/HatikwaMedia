@@ -8,6 +8,12 @@ https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
 """
 
 import os
+<<<<<<< HEAD
+=======
+import sys
+
+sys.path.append('/root/HatikwaMedia')
+>>>>>>> b091ee7182ea0f910fe4a7baaf4329b4188c2573
 
 from django.core.wsgi import get_wsgi_application
 
