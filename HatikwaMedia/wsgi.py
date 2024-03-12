@@ -8,9 +8,12 @@ https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
 """
 
 import os
+import sys
+
+sys.path.append('/home/adm-sdvries/HatikwaMedia')
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'HatikwaMedia.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "HatikwaMedia.settings")
 
 application = get_wsgi_application()
