@@ -26,19 +26,20 @@ _
 
 
 _
-**Bugs**
+**Bugs fixed**
 - [x] Guests can view songfiles for song that is guest activated
 - [x] Guest can view every song they enter in the url
 - [ ] Create user checks if the e-mail address is allready a outgoing_invite
-- [ ] Username needs to be not case sensitive
-- [ ] Songfiles are listed in upload order, needs to be alphabetic
+- [x] Username needs to be not case sensitive
+- [x] Songfiles are listed in upload order, needs to be alphabetic
 - [ ] Songname is everywhere in the file names, needs to be only what type of file it is
+- [ ] If song opened, order of head files needs to be "Bladmuziek, Audio opname, Choreo"
 
 
 _
 **High priority**
 - [x] Entire site needs to be locked down and more hacker proof for non_authenticated_users
-- [ ] E-mail system uses raw password, this and other authentication types need to be more secure
+- [x] E-mail system uses raw password, this and other authentication types need to be more secure
 
 
 _
@@ -50,5 +51,5 @@ _
 - [ ] More compatible with phone
 - [ ] More compatible with pc
 - [ ] Upload all archived songs from hatikwa.aikebah.net to this site
-- [ ] User get's same email of entering the site when password is reset, this needs to be a "password reset" email
+- [ ] User now get's same email of entering the site when password is reset, this needs to be a "password reset" email
 - [x] User first and last name are saved upon registration.
