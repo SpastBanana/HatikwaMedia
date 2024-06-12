@@ -4,226 +4,123 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+    background: black;
+}  
 
-@media screen and (max-width: 1050px) {  
-    html {
-        background: black;
-    }  
-
-    main {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        background: black;
-        height: 100%;
-    }
-    img {
-        width: 80%;
-        margin-bottom: 5%;
-    }
-    
-    form {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: column;
-        width: 65%;
-        height: 45%;
-        color: whitesmoke;
-        background: #202020;
-        padding: 50px;
-    }
-    
-    form h1 {
-        text-align: left;
-        width: 100%;
-        font-size: 65px;
-    }
-    
-    form p {
-        color: red;
-        text-align: left;
-        font-size: 40px;
-    }
-    
-    form input {
-        width: 100%;
-        height: 60px;
-        outline: none;
-        font-size: 40px;
-        padding: 10px;
-    }
-    
-    form button {
-        height: 60px;
-        width: 40%;
-        border: none;
-        background: rgb(25, 143, 25);
-        cursor: pointer;
-        margin-left: -60%;
-        color: whitesmoke;
-        font-size: 40px;
-    }
-
-    .guest-box {
-        position: relative;
-        margin-top: 5%;
-        height: 10%;
-        border: solid 5px whitesmoke;
-        width: 75%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .guest-box::before {
-        position: absolute;
-        content: "Ben je bij ons te gast?";
-        background: black;
-        font-size: 35px;
-        font-weight: bold;
-        color: whitesmoke;
-        top: -25px;
-        left: 15px;
-        padding: 0 10px 0 10px;
-    }
-    
-    .guest-box a {
-        width: 90%;
-        height: 60%;
-        background: rgb(33, 91, 208);
-        border: none;
-        color: whitesmoke;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        font-size: 38px;
-        letter-spacing: 1px;
-    }
-    
-    .disclaimer {
-        position: absolute;
-        bottom: 2px;
-        left: 10%;
-        width: 80%;
-        color: whitesmoke;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-style: italic;
-        font-size: 28px;
-    }
-    
-    .disclaimer a {
-        color: whitesmoke;
-    }
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background: black;
+    width: 100%;
+    min-height: 100vh;
+}
+img {
+    width: 220px;
 }
 
-@media screen and (min-width: 1050px) {
-    main {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        background: black;
-        height: 100%;
-    }
-    img {
-        width: 45%;
-        margin-bottom: 10px;
-    }
-    
-    form {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: column;
-        width: 200px;
-        height: 220px;
-        color: whitesmoke;
-        background: #181818;
-        padding: 20px;
-    }
-    
-    form h1 {
-        text-align: left;
-        width: 100%;
-    }
-    
-    form p {
-        color: red;
-        text-align: left;
-    }
-    
-    form input {
-        width: 100%;
-        height: 30px;
-        outline: none;
-    }
-    
-    form button {
-        height: 25px;
-        width: 40%;
-        border: none;
-        background: rgb(25, 143, 25);
-        cursor: pointer;
-        margin-left: -60%;
-        color: whitesmoke;
-    }
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
-    .guest-box {
-        position: relative;
-        margin-top: 35px;
-        height: 55px;
-        border: solid 2px whitesmoke;
-        width: 236px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .guest-box::before {
-        position: absolute;
-        content: "Ben je bij ons te gast?";
-        background: black;
-        font-size: 11px;
-        font-weight: bold;
-        color: whitesmoke;
-        top: -5px;
-        left: 5px;
-        padding: 0 4px 0 4px;
-    }
-    
-    .guest-box a {
-        width: 90%;
-        height: 60%;
-        background: rgb(33, 91, 208);
-        border: none;
-        color: whitesmoke;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        font-size: 13px;
-        letter-spacing: 1px;
-    }
-    
-    .disclaimer {
-        position: absolute;
-        bottom: 2px;
-        left: 10%;
-        width: 80%;
-        color: whitesmoke;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-style: italic;
-        font-size: 15px;
-    }
-    
-    .disclaimer a {
-        color: whitesmoke;
-    }
+form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    width: calc(220px - 40px);
+    height: 220px;
+    color: whitesmoke;
+    background: #202020;
+    padding: 20px;
+}
+
+form h1 {
+    text-align: left;
+    width: 100%;
+    font-size: 18px;
+}
+
+form p {
+    color: red;
+    text-align: left;
+    font-size: 11px;
+}
+
+form input {
+    width: calc(100% - 10px);
+    height: 20px;
+    outline: none;
+    font-size: 10px;
+    padding: 3px;
+    border: #3c3c3c solid 2px;
+    border-radius: 4px;
+}
+
+form button {
+    height: 30px;
+    width: 45%;
+    border: none;
+    background: rgb(25, 143, 25);
+    cursor: pointer;
+    color: whitesmoke;
+    font-size: 12px;
+    border-radius: 2px;
+}
+
+.guest-box {
+    position: relative;
+    margin-top: 20px;
+    height: 40px;
+    border: solid 3px whitesmoke;
+    width: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guest-box::before {
+    position: absolute;
+    content: "Ben je bij ons te gast?";
+    background: black;
+    font-size: 9px;
+    font-weight: bold;
+    color: whitesmoke;
+    top: -7px;
+    left: 7px;
+    padding: 0 3px 0 3px;
+}
+
+.guest-box a {
+    width: 90%;
+    height: 60%;
+    background: rgb(33, 91, 208);
+    border: none;
+    color: whitesmoke;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.disclaimer {
+    width: 290px;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-style: italic;
+    font-size: 9px;
+}
+
+.disclaimer a {
+    color: whitesmoke;
 }

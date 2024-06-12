@@ -1,25 +1,34 @@
 {% load static %}
 
-<head>
-    <link rel="stylesheet" href="{% static 'CSS/user/login.css' %}">
-</head>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'CSS/user/login.css' %}">
+        <title>Hatikwa Media</title>
+    </head>
 
-<main>
-    <img src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo">
-    <form method="post">
-        {% csrf_token %}
-        <h1>Login</h1>
-        <p>{{ error }}</p>
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit" name="login">Login</button>
-    </form>
-    <div class="guest-box">
-        <a href="/gast">Gasten pagina</a>
-    </div>
-    <div class="disclaimer">
-        <p>Sebastiaan de Vries</p>
-        <a href="https://datalectro.nl">&copy; DataLectro</a>
-        <a href="https://hatikwa.nl">Hatikwa website</a>
-    </div>
-</main>
+    <main>
+        <img src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo">
+        <div class="box">
+            <form method="post">
+                {% csrf_token %}
+                <h1>Login</h1>
+                <p>{{ error }}</p>
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit" name="login">Login</button>
+            </form>
+            <div class="guest-box">
+                <a href="/gast">Gasten pagina</a>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <p>Sebastiaan de Vries</p>
+            <a href="https://rhythmstudios.nl">&copy; Sebastiaans Rhythm Studios</a>
+            <a href="https://hatikwa.nl">Hatikwa website</a>
+        </div>
+    </main>
+</html>

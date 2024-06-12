@@ -11,57 +11,24 @@
 </head>
 
 <style>
-    main {
-        list-style: none;
-    }
-
-    main li {
-        line-height: 24px; /* Adjust this value as per your icon's height */
-    }
-
-    main li::before {
-        content: "";
-        display: inline-block;
-        width: 40px; /* Adjust this value to the desired width of the image */
-        height: 40px; /* Adjust this value to the desired height of the image */
-        background-repeat: no-repeat;
-        background-position: center;
-        vertical-align: middle;
-        margin-right: 5px; /* Adjust this value to provide spacing between the icon and text */
-    }
-
-    main .file::before {
+    .main .file::before {
         background-image: url('{% static "IMG/Icons/file-icon.png" %}');
-    }
-
-    main .audio::before {
-        background-image: url('{% static "IMG/Icons/play-icon.png" %}');
-    }
-
-    main .choreo::before {
-        background-image: url('{% static "IMG/Icons/stickman-icon.png" %}');
-    }
-
-    main .sheet::before {
-        background-image: url('{% static "IMG/Icons/noot-icon.png" %}');
     }
 </style>
 
 <body>
-     <header>
-        <a href="/login">Login</a>
-     </header>
+    <a class="login-link" href="/">Home</a>
+    <img src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo">
     <div class="bannerbox">
         <div class="center">
             <H1>Hatikwa</H1>
-            <p>Welkom op de gasten pagina van de Hatikwa media site</p>
-            <p>Op deze site staat al onze bladmuziek en andere media</p>
+            <p>Welkom op de gasten pagina van de Hatikwa media site, op deze site staat al onze bladmuziek en andere media</p>
             <p>Eigenlijk kunnen alleen leden van Hatikwa al deze content bekijken, maar bij onder anderen open repetities is het toch makkelijk als jij ook de bladmuziek hebt</p>
             <p>Onderaan deze pagina vind je alle bladmuziek die wij aan gasten openbaar maken om mee te doen</p>
             <p>Wil je toch gewoon alle muziek of media kunnen zien, word dan maar gewoon lid bij ons gezellige koor! :)</p>
         </div>
     </div>
-     <main>
+    <div class="main">
         <h2>Bestanden</h2>
         <hr>
         <br>
@@ -78,6 +45,8 @@
         <br>
         <br>
         <br>
-     </main>
+        <br>
+        <br>
+    </div>
 </body>
 </html>
