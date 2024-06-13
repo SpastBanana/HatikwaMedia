@@ -79,18 +79,25 @@ def songview(request, url_song_name):
         if item.song_name == url_song_name:
             files_list.append(item)
 
+    file_names_clean = []
+    for item in song_files.objects.all():
+        if item.song_name == url_song_name:
+            file_names_clean.append(str(item.song_file).split('/')[-1].split('.')[0].replace('_', ' '))
+    
     file_names = []
     for item in song_files.objects.all():
         if item.song_name == url_song_name:
-            file_names.append(str(item.song_file).split('/')[-1])
+            file_names.append(str(item.song_file).split('/')[-1].replace('_', ' '))
 
     data = {
         'page': 'render-song.html',
         'settings_perm': settings_perm,
         'media_perm': media_perm,
+        'main_sheets': zip(files_list, file_names_clean),
+        'main_choreos': zip(files_list, file_names_clean),
+        'main_audios': zip(files_list, file_names_clean),
+        'midi_files': zip(files_list, file_names),
         'all_files': zip(files_list, file_names),
-        'all_files1': zip(files_list, file_names),
-        'all_files2': zip(files_list, file_names),
     }
 
     return render(request, 'index.html', data)

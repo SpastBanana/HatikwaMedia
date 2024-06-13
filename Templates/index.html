@@ -1,5 +1,7 @@
 {% load static %}
 
+<!-- Main page -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,7 @@
 </head>
 
 <body>
-     <header>
+    <div class="nav">
         {% if user.is_authenticated %}
         <a href="/songs">Repetoire</a>
         {% if media_perm %}
@@ -25,8 +27,9 @@
         {% if not user.is_authenticated %}
         <a href="/login">Login</a>
         {% endif %}
-     </header>
-     <img src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo" style="width: 45%; margin-left: 50%; transform: translateX(-50%);">
-     {% include page %}
+    </div>
+    <hr class="top-bar">
+    <img class="top-logo" src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo">
+    {% include page %}
 </body>
 </html>

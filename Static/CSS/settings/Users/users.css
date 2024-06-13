@@ -1,12 +1,10 @@
 main {
-    width: 80%;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
     margin-top: 50px;
-    padding: 20px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     position: relative;
+    list-style: none;
 }
 
 main::after {
@@ -17,6 +15,7 @@ main::after {
     left: 0;
     bottom: 0;
     right: 0;
+    background-size: 150%;
     background-image: url("https://pics.craiyon.com/2023-09-17/547428a2dcdc4c6e84b184213f9d289b.webp");
     /* background-image: url("https://wallpapercave.com/wp/wp7460934.jpg"); */
     /* background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f40fe395-b986-4b73-8732-7ad578e63d77/dgbwajg-1fe7d142-f31e-4ddb-aa71-23bdf879b652.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y0MGZlMzk1LWI5ODYtNGI3My04NzMyLTdhZDU3OGU2M2Q3N1wvZGdid2FqZy0xZmU3ZDE0Mi1mMzFlLTRkZGItYWE3MS0yM2JkZjg3OWI2NTIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.IScWWSXIc1Darn_mLBdb05Wq11NuiYMhcnlwsJctZrM"); */
@@ -25,21 +24,94 @@ main::after {
     opacity: 0.3;
 }
 
-main h2 {
+.center-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.create-user-btn {
+    background: rgb(25, 143, 25);
     color: whitesmoke;
-    font-size: 22px;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-top: 35px;
+    width: 330px;
+}
+
+.section hr {
+    margin-bottom: 10px;
+    width: 99%;
+}
+
+.user-grid {
+    margin-bottom: 10px;
+    border: solid 1px gray;
+    padding: 8px;
+    border-radius: 10px;
+    width: calc(100% - 18px);
+}
+
+.section-title {
+    color: whitesmoke;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: left;
+}
+
+.user-grid p {
+    color: whitesmoke;
+}
+
+.user-grid .user-item-1 {
+    font-size: 16px;
+    font-weight: 400;
     font-style: italic;
 }
 
-main li {
-    color: whitesmoke;
+.user-grid .user-item-2 {
+    font-size: 13px;
+    font-weight: 300;
 }
 
-main li a {
-    color:  whitesmoke;
+.user-grid .user-active {
+    font-size: 13px;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.resdel-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-grid .user-item-3, .user-grid .user-item-4 {
+    width: 140px;
+    display: block;
     text-decoration: none;
+    color: whitesmoke;
+    text-align: center;
+    padding: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    border-radius: 3px;
 }
 
-hr {
-    background-color: rgb(120, 11, 11);
+.user-grid .user-item-3 {
+    background: rgb(211, 139, 5);
+}
+
+.user-grid .user-item-4 {
+    background: red;
 }

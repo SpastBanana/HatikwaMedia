@@ -45,11 +45,11 @@ class SiteRestrictions:
             authorised_urls = ["", "/", "/login", "/gast", "/auth"]
             
             if "song" in request.path:
-                path_items = request.path.split('/')
-                if path_items[-1] in guest_activated:
+                song_path = request.path.split('/')[3]
+                if song_path in guest_activated:
                     access = True
                 else:    
-                    access = False
+                    return redirect('/')
 
             for item in authorised_urls:
                 if item in request.path:

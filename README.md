@@ -23,13 +23,13 @@ _
 - [ ] See all users and manage them from one page
 - [x] User role system
 - [ ] Admin can manage user's role
+- [x] Guests can view songfiles for song that is guest activated
 
 
 _
 **Bugs fixed**
-- [x] Guests can view songfiles for song that is guest activated
 - [x] Guest can view every song they enter in the url
-- [ ] Create user checks if the e-mail address is allready a outgoing_invite
+- [x] Create user checks if the e-mail address is allready a outgoing_invite
 - [x] Username needs to be not case sensitive
 - [x] Songfiles are listed in upload order, needs to be alphabetic
 - [ ] Songname is everywhere in the file names, needs to be only what type of file it is

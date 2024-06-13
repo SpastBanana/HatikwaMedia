@@ -8,15 +8,26 @@ html {
     background-color: black;
 }
 
-header {
+.nav {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 100px;
+    height: 80px;
 }
 
-header a {
+.nav a {
     color: whitesmoke;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 300;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.top-bar {
+    box-shadow: 0px -6px 16px 1px #d2d2d2;
+}
+
+.top-logo {
+    width: 200px;
+    margin-left: calc(50% - 100px);
 }

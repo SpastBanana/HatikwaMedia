@@ -8,17 +8,36 @@ html {
     background-color: black;
 }
 
-.login-link {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    color: whitesmoke;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 12px;
+.head {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-body img {
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 80px;
+}
+
+.nav a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.top-bar {
+    box-shadow: 0px -6px 16px 1px #d2d2d2;
+    width: 99%;
+}
+
+.top-logo {
     width: 200px;
 }
 
@@ -55,6 +74,7 @@ body {
     /* background-image: url("https://wallpapercave.com/wp/wp7460934.jpg"); */
     /* background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f40fe395-b986-4b73-8732-7ad578e63d77/dgbwajg-1fe7d142-f31e-4ddb-aa71-23bdf879b652.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y0MGZlMzk1LWI5ODYtNGI3My04NzMyLTdhZDU3OGU2M2Q3N1wvZGdid2FqZy0xZmU3ZDE0Mi1mMzFlLTRkZGItYWE3MS0yM2JkZjg3OWI2NTIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.IScWWSXIc1Darn_mLBdb05Wq11NuiYMhcnlwsJctZrM"); */
     opacity: 0.3;
+    border-radius: 10px;
 }
 
 .center {
@@ -81,20 +101,42 @@ body {
 }
 
 .main {
-    margin-top: 25px;
-    background-color: #151515;
+    width: 240px;
     padding: 20px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    color: whitesmoke;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: relative;
     list-style: none;
-    width: calc(280px - 40px);
+    box-shadow: 0px 0px 40px #424242;
+    margin-top: 40px;
 }
 
-.main h2 {
+.main::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #111;
+    /* background-image: url("https://pics.craiyon.com/2023-09-17/547428a2dcdc4c6e84b184213f9d289b.webp"); */
+    /* background-image: url("https://wallpapercave.com/wp/wp7460934.jpg"); */
+    /* background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f40fe395-b986-4b73-8732-7ad578e63d77/dgbwajg-1fe7d142-f31e-4ddb-aa71-23bdf879b652.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y0MGZlMzk1LWI5ODYtNGI3My04NzMyLTdhZDU3OGU2M2Q3N1wvZGdid2FqZy0xZmU3ZDE0Mi1mMzFlLTRkZGItYWE3MS0yM2JkZjg3OWI2NTIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.IScWWSXIc1Darn_mLBdb05Wq11NuiYMhcnlwsJctZrM"); */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    opacity: 0.3;
+}
+
+.section-title {
     color: whitesmoke;
-    font-size: 11px;
-    font-style: italic;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.spacer {
+    margin-bottom: 20px;
 }
 
 .main li {

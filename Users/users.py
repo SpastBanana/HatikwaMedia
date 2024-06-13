@@ -75,8 +75,11 @@ def create_user(request):
             user = User.objects.create_user(email, email, "HatikwaMediaManagement")
             user.save()
 
-            member_invite_db.email = email
-            member_invite_db.save()
+            try:
+                member_invite_db.email = email
+                member_invite_db.save()
+            except:
+                pass
 
             data = {
                 'page': 'settings/Users/create-user.html',
@@ -126,9 +129,15 @@ def activate_user(request, mail):
 
 
 def reset_user(request, mail):
+    try:
+        selected_user = User.objects.get(email=mail)
+    except:
+        selected_user = User.objects.get(username=mail)
+
     data = {
         'page': 'settings/Users/reset-user.html',
         'email': mail,
+        'selected_user': selected_user,
     }
     return render(request, 'settings/index.html', data)
 
@@ -138,7 +147,11 @@ def reset_user_confirmed(request, mail):
 
     # Try and except for creating new user with reset password
     try:
-        user = User.objects.get(username=mail)
+        try:
+            user = User.objects.get(email=mail)
+        except:
+            user = User.objects.get(username=mail)
+
         user.delete()
         user = User.objects.create_user(mail, mail, "HatikwaMediaManagement")
         user.save()
@@ -167,9 +180,15 @@ def reset_user_confirmed(request, mail):
 
 
 def delete_user(request, mail):
+    try:
+        selected_user = User.objects.get(email=mail)
+    except:
+        selected_user = User.objects.get(username=mail)
+
     data = {
         'page': 'settings/Users/delete-user.html',
         'email': mail,
+        'selected_user': selected_user,
     }
     return render(request, 'settings/index.html', data)
 

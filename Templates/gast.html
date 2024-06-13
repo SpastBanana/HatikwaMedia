@@ -1,5 +1,7 @@
 {% load static %}
 
+<!-- Not included page -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +18,14 @@
     }
 </style>
 
+<div class="head">
+    <div class="nav">
+        <a href="/">Home</a>
+    </div>
+    <hr class="top-bar">
+    <img class="top-logo" src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo">
+</div>
 <body>
-    <a class="login-link" href="/">Home</a>
-    <img src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo">
     <div class="bannerbox">
         <div class="center">
             <H1>Hatikwa</H1>
@@ -29,9 +36,8 @@
         </div>
     </div>
     <div class="main">
-        <h2>Bestanden</h2>
-        <hr>
-        <br>
+        <h2 class="section-title">Bestanden</h2>
+        <hr class="spacer">
         {% if items == None %}
         <p>Op het moment zijn er geen liederen beschikbaar voor gasten</p>
         <p>Klopt dit niet of op zoek naar iets anders?</p>

@@ -1,83 +1,39 @@
 {% load static %}
 
+<!-- Included page -->
+
 <head>
     <link rel="stylesheet" href="{% static 'CSS/repetoire.css' %}">
 </head>
 
-<style>
-    main {
-        list-style: none;
-    }
-
-    main li {
-        line-height: 30px; /* Adjust this value as per your icon's height */
-    }
-
-    /* main .file::before {
-        content: "";
-        display: inline-block;
-        width: 40px; Adjust this value to the desired width of the image
-        height: 40px; Adjust this value to the desired height of the image
-        background-image: url('{% static "IMG/Icons/file-icon.png" %}');
-        background-repeat: no-repeat;
-        background-position: center;
-        vertical-align: middle;
-        margin-right: 5px; Adjust this value to provide spacing between the icon and text
-    } */
-
-    main .folder::before {
-        content: "";
-        display: inline-block;
-        width: 40px; /* Adjust this value to the desired width of the image */
-        height: 40px; /* Adjust this value to the desired height of the image */
-        background-image: url('{% static "IMG/Icons/folder-icon.png" %}');
-        background-repeat: no-repeat;
-        background-position: center;
-        vertical-align: middle;
-        margin-right: 5px; /* Adjust this value to provide spacing between the icon and text */
-    }
-</style>
-<main>
+<div class="welcome-box">
     {% if user.first_name != "" %}
     {% if user.last_name != "" %}
-    <h3 style="width: 100%; text-align: center; color: white; text-decoration: none; font-style: normal;">Welkom {{ user.first_name }} {{ user.last_name }}</h3>
-    <br>
-    <br>
+    <h3 class="welcome">Welkom {{ user.first_name }} {{ user.last_name }}</h3>
     {% endif %}
     {% if user.last_name == "" %}
-    <h3 style="width: 100%; text-align: center; color: white; text-decoration: none; font-style: normal;">Welkom {{ user.first_name }}</h3>
-    <br>
-    <br>
+    <h3 class="welcome">Welkom {{ user.first_name }}</h3>
     {% endif %}
     {% endif %}
-    
-    <h2>Actief repetoire</h2>
+</div>
+<main>
+    <h2 class="section-title">Actief repetoire</h2>
     <hr>
-    <br>
     {% for song in active %}
     <li class="file"><a href="/songs/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
-    <br>
     {% endfor %}
-    <br>
-    <br>
+    <br class="item-break">
 
-    <h2>Inactief repetoire</h2>
+    <h2 class="section-title">Inactief repetoire</h2>
     <hr>
-    <br>
     {% for song in inactive %}
     <li class="file"><a href="/songs/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
-    <br>
     {% endfor %}
-    <br>
-    <br>
+    <br class="item-break">
 
-    <h2>Mappen</h2>
+    <h2 class="section-title">Mappen</h2>
     <hr>
-    <br>
     {% for song in folders %}
     <li class="folder"><a href="/songs/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
-    <br>
     {% endfor %}
-    <br>
-    <br>
 </main>

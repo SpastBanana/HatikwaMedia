@@ -1,16 +1,19 @@
 {% load static %}
 
+<!-- Main page -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'CSS/settings/index.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/index.css' %}">
     <title>Settings</title>
 </head>
+
 <body>
-    <header>
+    <div class="nav">
         <a href="/">Back to site</a>
         <a href="/admin/users">Users</a>
         <a href="/admin/songs">Liedjes</a>
@@ -18,8 +21,9 @@
         {% if user.is_superuser %}
         <a href="/db/admin">DB</a>
         {% endif %}
-    </header>
-    <img src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo" style="width: 45%; margin-left: 50%; transform: translateX(-50%);">
+    </div>
+    <hr class="top-bar">
+    <img class="top-logo" src="{% static 'IMG/Main/Logo.jpg' %}" alt="Hatikwa-Logo">
     {% include page %}
 </body>
 </html>
