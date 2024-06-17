@@ -1,5 +1,7 @@
 {% load static %}
 
+<!-- Included page -->
+
 <head>
     <link rel="stylesheet" href="{% static 'CSS/settings/Users/users.css' %}">
 </head>
@@ -27,10 +29,32 @@
                 <h2 class="section-title">Super user / Site administrator</h2>
                 <hr>
             </div>
-            {% for user in superusers %}
+            {% for user in bestuur %}
             <div class="user-grid">
                 <p class="user-item-1">{{ user.first_name }} {{ user.last_name }}</p>
                 <p class="user-item-2">{{ user.email }}</p>
+                <p class="user-item-2">Role: Bestuur</p>
+            </div>
+            {% endfor %}
+            {% for user in dirigent %}
+            <div class="user-grid">
+                <p class="user-item-1">{{ user.first_name }} {{ user.last_name }}</p>
+                <p class="user-item-2">{{ user.email }}</p>
+                <p class="user-item-2">Role: dirigent</p>
+            </div>
+            {% endfor %}
+            {% for user in pr %}
+            <div class="user-grid">
+                <p class="user-item-1">{{ user.first_name }} {{ user.last_name }}</p>
+                <p class="user-item-2">{{ user.email }}</p>
+                <p class="user-item-2">Role: pr</p>
+            </div>
+            {% endfor %}
+            {% for user in admin %}
+            <div class="user-grid">
+                <p class="user-item-1">{{ user.first_name }} {{ user.last_name }}</p>
+                <p class="user-item-2">{{ user.email }}</p>
+                <p class="user-item-2">Role: admin</p>
             </div>
             {% endfor %}
         </div>

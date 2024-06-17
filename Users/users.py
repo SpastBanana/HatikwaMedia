@@ -17,10 +17,24 @@ def users(request):
 
     super_users = []
     site_users = []
+    bestuur_group = []
+    dirigent_group = []
+    pr_group = []
+    admin_group = []
 
     for user in users:
         if user.is_superuser:
             super_users.append(user)
+        if user.groups.filter(name = 'Bestuur').exists():
+            bestuur_group.append(user)
+        if user.groups.filter(name = 'Dirigent').exists():
+            dirigent_group.append(user)
+        if user.groups.filter(name = 'PR-lid').exists():
+            pr_group.append(user)
+        if user.groups.filter(name = 'Admin').exists():
+            admin_group.append(user)
+
+        print(user)
 
     for user in users:
         if not user.is_superuser:
@@ -44,6 +58,10 @@ def users(request):
     data = {
         'page': 'settings/Users/users.html',
         'superusers': super_users,
+        'bestuur': bestuur_group,
+        'dirigent': dirigent_group,
+        'pr': pr_group,
+        'admin': admin_group,
         'siteusers': zip(site_users, pending_list),
     }
 
@@ -176,6 +194,7 @@ def reset_user_confirmed(request, mail):
 
     # Send password reset mail
     sendmail.reset_email(mail, 'Account & wachtwoord reset', mail)
+    return redirect('/admin/users')
 
 
 
@@ -194,4 +213,26 @@ def delete_user(request, mail):
 
 
 def delete_user_confirmed(request, mail):
-    raise PermissionDenied()
+    form = member_invites()
+
+    # Try and except for creating new user with reset password
+    try:
+        user = User.objects.get(email=mail)
+    except:
+        user = User.objects.get(username=mail)
+
+    user.groups.clear()
+    user.delete()
+    
+
+    # Try and except for resetting the pending system
+    try:
+        member_invites.objects.get(mail=mail).delete()
+
+    except:
+        pass
+
+
+    # Send password reset mail
+    sendmail.delete_mail(mail, 'Account verwijderd', mail)
+    return redirect('/admin/users')
