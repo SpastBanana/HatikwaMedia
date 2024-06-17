@@ -159,3 +159,11 @@ body {
     vertical-align: middle;
     margin-right: 5px;
 }
+
+.main p {
+    color: whitesmoke;
+    font-size: 11px;
+    margin-bottom: 10px;
+    font-weight: 200;
+    font-style: italic;
+}
