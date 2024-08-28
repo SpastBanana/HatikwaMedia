@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    background: black;
+}  
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background: black;
+    width: 100%;
+    min-height: 100vh;
+}
+
+img {
+    width: 200px;
+}
+
+form {
+    width: calc(220px - 40px);
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    border-radius: 12px;
+    position: relative;
+    list-style: none;
+    box-shadow: 0px 0px 40px #424242;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 220px;
+    color: whitesmoke;
+}
+
+form::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-size: 135%;
+    background-image: url("https://pics.craiyon.com/2023-09-17/547428a2dcdc4c6e84b184213f9d289b.webp");
+    opacity: 0.3;
+}
+
+form h1 {
+    text-align: left;
+    width: 100%;
+    font-size: 18px;
+}
+
+form p {
+    color: red;
+    text-align: left;
+    font-size: 11px;
+}
+
+form input {
+    width: calc(100% - 10px);
+    height: 20px;
+    outline: none;
+    font-size: 10px;
+    padding: 3px;
+    border: #3c3c3c solid 2px;
+    border-radius: 4px;
+}
+
+form button {
+    height: 30px;
+    width: 45%;
+    border: none;
+    background: rgb(25, 143, 25);
+    cursor: pointer;
+    color: whitesmoke;
+    font-size: 12px;
+    border-radius: 2px;
+}
+
+.guest-box {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    height: 40px;
+    border: solid 3px whitesmoke;
+    width: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.guest-box::before {
+    position: absolute;
+    content: "Ben je bij ons te gast?";
+    background: black;
+    font-size: 9px;
+    font-weight: bold;
+    color: whitesmoke;
+    top: -7px;
+    left: 7px;
+    padding: 0 3px 0 3px;
+}
+
+.guest-box a {
+    width: 90%;
+    height: 60%;
+    background: rgb(33, 91, 208);
+    border: none;
+    color: whitesmoke;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.disclaimer {
+    width: 290px;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-style: italic;
+    font-size: 9px;
+}
+
+.disclaimer a {
+    color: whitesmoke;
+}
