@@ -5,6 +5,7 @@ main {
     border-top-right-radius: 20px;
     position: relative;
     list-style: none;
+    min-height: calc(100vh - 200px);
 }
 
 main::after {
@@ -45,6 +46,30 @@ main::after {
 .section {
     margin-top: 35px;
     width: 330px;
+}
+
+.title-search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-box {
+    padding: 5px;
+    border: solid 1px #f5f5f5;
+    border-radius: 7px;
+    outline: none;
+    margin: 15px 0 13px 0;
+    width: calc(150% - 12px);
+    height: 16px;
+    font-size: 11px;
+    background: #ffffff33;
+    color: #fafafa;
+}
+
+.search-box::placeholder {
+    color: #ddd;
+    opacity: 1;
 }
 
 .section hr {

@@ -1,5 +1,6 @@
 main {
     width: 280px;
+    min-height: calc(100vh - 200px);
     margin-left: 50%;
     transform: translateX(-50%);
     padding: 20px;
@@ -61,4 +62,28 @@ main::after {
 
 .item-break {
     width: 50%;
+}
+
+.title-search {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.search-box {
+    padding: 5px;
+    border: solid 1px #f5f5f5;
+    border-radius: 7px;
+    outline: none;
+    width: calc(50% - 12px);
+    height: 13px;
+    font-size: 11px;
+    background: #ffffff33;
+    color: #fafafa;
+    margin-bottom: 7px;
+}
+
+.search-box::placeholder {
+    color: #ddd;
+    opacity: 1;
 }
