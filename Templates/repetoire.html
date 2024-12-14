@@ -17,23 +17,57 @@
     {% endif %}
 </div>
 <main>
-    <h2 class="section-title">Actief repetoire</h2>
-    <hr>
-    {% for song in active %}
-    <li class="file"><a href="/songs/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
-    {% endfor %}
-    <br class="item-break">
+    <section>
+        <div class="title-search">
+            <h2 class="section-title">Repetoire</h2>
+            <input class="search-box" type="text" id="searchFunction" onkeyup="searchFunction()" placeholder="Search song">
+        </div>
+        <hr style="margin-bottom: 13px;">
+        <ul id="searchable-songs-list">
+            {% for song in active %}
+            <li class="file"><a href="/songs/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
 
-    <h2 class="section-title">Inactief repetoire</h2>
-    <hr>
-    {% for song in inactive %}
-    <li class="file"><a href="/songs/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
-    {% endfor %}
     <br class="item-break">
+    
+    <section>
+        <h2 class="section-title">Inactief repetoire</h2>
+        <hr>
+        {% for song in inactive %}
+        <li class="file"><a href="/songs/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
+        {% endfor %}
+    </section>
 
-    <h2 class="section-title">Mappen</h2>
-    <hr>
-    {% for song in folders %}
-    <li class="folder"><a href="/songs/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
-    {% endfor %}
+    <br class="item-break">
+    
+    <section>
+        <h2 class="section-title">Mappen</h2>
+        <hr>
+        {% for song in folders %}
+        <li class="folder"><a href="/songs/song/{{ song.song_name }}">{{ song.song_name }}</a></li>
+        {% endfor %}
+    </section>
 </main>
+<script>
+    function searchFunction() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('searchFunction');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("searchable-songs-list");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>

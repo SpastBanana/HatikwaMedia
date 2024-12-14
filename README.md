@@ -32,7 +32,6 @@ _
 - [x] Create user checks if the e-mail address is allready a outgoing_invite
 - [x] Username needs to be not case sensitive
 - [x] Songfiles are listed in upload order, needs to be alphabetic
-- [ ] Songname is everywhere in the file names, needs to be only what type of file it is
 - [x] If song opened, order of head files needs to be "Bladmuziek, Audio opname, Choreo"
 
 
@@ -45,11 +44,12 @@ _
 _
 **Extra's / todo**
 - [x] Uploading all songs for main launch
-- [ ] Correct the names of files in the frontend (for example remove ".mp3" and make it a play button icon)
-- [ ] Add search function to the song list
+- [x] remove file extensions in main files (example, remove ".mp3")
+- [x] Add search function to the song list
 - [x] Better styling
 - [x] More compatible with phone
 - [x] More compatible with pc
 - [ ] Upload all archived songs from hatikwa.aikebah.net to this site
 - [x] User now receives same email of entering the site when password is reset, this needs to be a "password reset" email
 - [x] User first and last name are saved upon registration.
+- [ ] Make achive page and system (only accessable by roles that can manage song media).

@@ -36,39 +36,61 @@
 <main>
     <h2 class="section-title">Hoofd bestanden</h2>
     <hr>
-    {% for song, name in main_sheets %}
-    {% if song.item_type == 'main_sheet' %}
-    <li class="sheet"><a href="{{ song.song_file.url }}">{{ name }}</a></li>
-    {% endif %}
-    {% endfor %}
 
-    {% for song, name in main_choreos %}
-    {% if song.item_type == 'main_choreo' %}
-    <li class="choreo"><a href="{{ song.song_file.url }}">{{ name }}</a></li>
-    {% endif %}
-    {% endfor %}
+    <div class="section">
+        {% for song, name in main_sheets %}
+        {% if song.item_type == 'main_sheet' %}
+        <div class="item">
+            <i id="icon" class="fa-solid fa-music"></i>
+            <a href="{{ song.song_file.url }}">{{ name }}</a>
+        </div>
+        {% endif %}
+        {% endfor %}
 
-    {% for song, name in main_audios %}
-    {% if song.item_type == 'main_audio' %}
-    <li class="audio"><a href="{{ song.song_file.url }}">{{ name }}</a></li>
-    {% endif %}
-    {% endfor %}
+        {% for song, name in main_choreos %}
+        {% if song.item_type == 'main_choreo' %}
+        <div class="item">
+            <i id="icon" class="fa-solid fa-child-reaching"></i>
+            <a href="{{ song.song_file.url }}">{{ name }}</a>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        {% for song, name in main_audios %}
+        {% if song.item_type == 'main_audio' %}
+        <div class="item">
+            <i id="icon" class="fa-solid fa-circle-play"></i>
+            <a href="{{ song.song_file.url }}">{{ name }}</a>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
 
     <br class="item-break">
-
     <h3 class="section-title">Midi's</h3>
     <hr>
-    {% for song, name in midi_files %}
-    {% if song.item_type == 'midi' %}
-    <li class="audio"><a href="{{ song.song_file.url }}">{{ name }}</a></li>
-    {% endif %}
-    {% endfor %}
+
+    <div class="section">
+        {% for song, name in midi_files %}
+        {% if song.item_type == 'midi' %}
+        <div class="little-item">
+            <i id="little-icon" class="fa-regular fa-circle-play"></i>
+            <a href="{{ song.song_file.url }}">{{ name }}</a>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
 
     <br class="item-break">
-
     <h3 class="section-title">Alle bestanden</h3>
     <hr>
-    {% for song, name in all_files %}
-    <li class="file"><a href="{{ song.song_file.url }}">{{ name }}</a></li>
-    {% endfor %}
+
+    <div class="section">
+        {% for song, name in all_files %}
+        <div class="little-item">
+            <i id="little-icon" class="fa-regular fa-file"></i>
+            <a href="{{ song.song_file.url }}">{{ name }}</a>
+        </div>
+        {% endfor %}
+    </div>
 </main>

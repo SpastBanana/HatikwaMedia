@@ -35,19 +35,55 @@ main::after {
     margin-bottom: 5px;
 }
 
-.sheet, .choreo, .audio, .file {
-    color: whitesmoke;
-    line-height: 30px;
-    list-style: none;
-    text-decoration: none;
-    margin-top: 10px;
-}
-
 main li a {
     color:  whitesmoke;
     text-decoration: none;
     font-size: 14px;
     font-weight: 300;
+}
+
+.section {
+    padding: 20px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.item a {
+    color:  whitesmoke;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+#icon {
+    color: whitesmoke;
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.little-item {
+    display: flex;
+    align-items: center;
+}
+
+.little-item a {
+    color:  whitesmoke;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 200;
+}
+
+#little-icon {
+    color: whitesmoke;
+    font-size: 18px;
+    margin-right: 10px;
 }
 
 .item-break {

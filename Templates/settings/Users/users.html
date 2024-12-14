@@ -26,55 +26,59 @@
 
         <div class="section">
             <div class="section-title-holder">
-                <h2 class="section-title">Super user / Site administrator</h2>
+                <h2 class="section-title">Site administrator</h2>
                 <hr>
             </div>
-            {% for user in bestuur %}
+            {% for user in superusers %}
             <div class="user-grid">
                 <p class="user-item-1">{{ user.first_name }} {{ user.last_name }}</p>
                 <p class="user-item-2">{{ user.email }}</p>
-                <p class="user-item-2">Role: Bestuur</p>
-            </div>
-            {% endfor %}
-            {% for user in dirigent %}
-            <div class="user-grid">
-                <p class="user-item-1">{{ user.first_name }} {{ user.last_name }}</p>
-                <p class="user-item-2">{{ user.email }}</p>
-                <p class="user-item-2">Role: dirigent</p>
-            </div>
-            {% endfor %}
-            {% for user in pr %}
-            <div class="user-grid">
-                <p class="user-item-1">{{ user.first_name }} {{ user.last_name }}</p>
-                <p class="user-item-2">{{ user.email }}</p>
-                <p class="user-item-2">Role: pr</p>
-            </div>
-            {% endfor %}
-            {% for user in admin %}
-            <div class="user-grid">
-                <p class="user-item-1">{{ user.first_name }} {{ user.last_name }}</p>
-                <p class="user-item-2">{{ user.email }}</p>
-                <p class="user-item-2">Role: admin</p>
             </div>
             {% endfor %}
         </div>
         
         <div class="section">
             <div class="section-title-holder">
-                <h2 class="section-title">Users</h2>
+                <div class="title-search">
+                    <h2 class="section-title">Users</h2>
+                    <input class="search-box" type="text" id="searchFunction" onkeyup="searchFunction()" placeholder="Search user">
+                </div>
                 <hr>
             </div>
-            {% for user, pending in siteusers %}
-            <div class="user-grid">
-                <p class="user-item-1">{{ user.first_name }} {{ user.last_name }}</p>
-                <p class="user-item-2">{{ user.email }}</p>
-                <p class="user-active">Account status: {% if pending == True %}Mail verstuurd, in afwachting...{% else %}Lid van site{% endif %}</p>
-                <div class="resdel-block">
-                    <a class="user-item-3" href="/admin/users/reset-user/{{ user.email }}">Reset password</a>
-                    <a class="user-item-4" href="/admin/users/delete-user/{{ user.email }}">Delete user</a>
-                </div>
-            </div>
-            {% endfor %}
+            <ul id="searchable-users-list">
+                {% for user, pending, user_role in siteusers %}
+                <li class="user-grid">
+                    <p class="user-item-1">{{ user.first_name }} {{ user.last_name }}</p>
+                    <p class="user-item-2">{{ user.email }}</p>
+                    <p class="user-active">{% if pending == True %}User status: Mail verstuurd, in afwachting...{% else %}User roles: {{ user_role }}{% endif %}</p>
+                    <div class="resdel-block">
+                        <a class="user-item-3" href="/admin/users/reset-user/{{ user.email }}">Reset password</a>
+                        <a class="user-item-4" href="/admin/users/delete-user/{{ user.email }}">Delete user</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </main>
+<script>
+    function searchFunction() {
+        // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('searchFunction');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("searchable-users-list");
+        li = ul.getElementsByTagName('li');
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("p")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }   
+</script>

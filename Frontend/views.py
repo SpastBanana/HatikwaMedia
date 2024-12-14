@@ -6,32 +6,25 @@ from django.http import Http404
 
 
 def request_perm(request, groups):
-    perm = False
-
     for group in groups:
         if request.user.groups.filter(name=group).exists():
-            perm = True
+            return True
 
-    return perm
+    return False
 
 
-def all_groups(request):
-    perm = False
+# def all_groups(request):
+#     for group in ['Admin', 'Bestuur', 'Dirigent']:
+#         if request.user.groups.filter(name=group).exists():
+#             return True
 
-    for group in ['Admin', 'Bestuur', 'Dirigent']:
-        if request.user.groups.filter(name=group).exists():
-            perm = True
-
-    return perm
+#     return False
 
 
 
 def repetoireview(request):
-    # Redirect to '/login' if not authenticated
-    if not request.user.is_authenticated:
-        return redirect('/login')
 
-    # set permissions True of False depending if authenticated user has one of these roles
+    # Permission groups
     settings_perm = request_perm(request, ['Admin', 'Bestuur', 'Dirigent'])
     media_perm = request_perm(request, [''])
 
@@ -69,7 +62,7 @@ def songview(request, url_song_name):
     if song_item.page_topic == 'archive':
         return redirect('/songs/archive')
 
-    # set permissions True of False depending if authenticated user has one of these roles
+    # Permission groups
     settings_perm = request_perm(request, ['Admin', 'Bestuur', 'Dirigent'])
     media_perm = request_perm(request, [''])
 

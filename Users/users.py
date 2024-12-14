@@ -16,53 +16,34 @@ def users(request):
     users = user.objects.all()
 
     super_users = []
+    user_role = []
+    pending_list = []
     site_users = []
-    bestuur_group = []
-    dirigent_group = []
-    pr_group = []
-    admin_group = []
 
     for user in users:
         if user.is_superuser:
             super_users.append(user)
-        if user.groups.filter(name = 'Bestuur').exists():
-            bestuur_group.append(user)
-        if user.groups.filter(name = 'Dirigent').exists():
-            dirigent_group.append(user)
-        if user.groups.filter(name = 'PR-lid').exists():
-            pr_group.append(user)
-        if user.groups.filter(name = 'Admin').exists():
-            admin_group.append(user)
+            continue
 
-        print(user)
-
-    for user in users:
-        if not user.is_superuser:
-            site_users.append(user)
-    
-    pending_list = []
-    email_list = []
-    invites = member_invites.objects.all()
-
-    for user in site_users:
-        email = user.email
-
-        for member in invites:
-            email_list.append(member.email)
-
-        if email in email_list:
+        site_users.append(user)
+        user_groups = list(user.groups.values_list('name',flat = True))
+        
+        if len(user_groups) > 1:
+            user_groups.remove('Lid')
+            user_groups = f'{user_groups}'.replace('[', '').replace(']', '').replace("'", "")
+            user_role.append(user_groups)
+            pending_list.append(False)
+        elif user.email in member_invites.objects.all():
+            user_role.append('Aanmeld mail verstuurd, in afwachting...')
             pending_list.append(True)
         else:
+            user_role.append('Lid van site')
             pending_list.append(False)
     
     data = {
         'page': 'settings/Users/users.html',
         'superusers': super_users,
-        'bestuur': bestuur_group,
-        'dirigent': dirigent_group,
-        'pr': pr_group,
-        'admin': admin_group,
-        'siteusers': zip(site_users, pending_list),
+        'siteusers': zip(site_users, pending_list, user_role),
     }
 
     return render(request, 'settings/index.html', data)
@@ -183,7 +164,7 @@ def reset_user_confirmed(request, mail):
 
     # Try and except for resetting the pending system
     try:
-        member_invites.objects.get(mail=mail).delete()
+        member_invites.objects.get(email=mail).delete()
         form.email = mail
         form.save()
 
@@ -227,7 +208,8 @@ def delete_user_confirmed(request, mail):
 
     # Try and except for resetting the pending system
     try:
-        member_invites.objects.get(mail=mail).delete()
+        invite = member_invites.objects.get(email=mail)
+        invite.delete()
 
     except:
         pass
